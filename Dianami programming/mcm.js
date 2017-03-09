@@ -1,29 +1,37 @@
 function mcm(d)
 {
-  var m=[[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]];
-   
-var n = d.length-1;
-var j ;
-var q ;
-
-
-          for( var i=0 ; i<=n ;i++)
-        {
-          j=i+len-1;
-        
-                q=m[i][k]+m[k+1][j]+ d[i]*d[j]*d[k-1];
-                m[i][j]=q;
-                  
-              } 
-              
-        }
-
-
-
-
-return m ;
+  var m=[[0,0,0],
+  [0,0,0],
+  [0,0,0]];
   
+  
+  var n = d.length-1 ;
+   
+for( var len =2 ;len<=n ;len++)
+  {
+    for( var i=1;i<n-len+1 ;i++)
+      {
+         j=i+len-1;
+         m[i][j]= 1/0 ;
+           
+           for( var k=i;k<=j; k++)
+            {
+              q=m[i][k]+m[k+1][j]+d[i]*d[k]*d[j];
+              if( q<m[i][j])
+              {
+                m[i][j]=q  ;
+              }
+            
+            }
+      }
+  
+  
+  }
+
+return m;
+    
 }
+
 
 
 console.log( mcm([10,100,5,50]) )
