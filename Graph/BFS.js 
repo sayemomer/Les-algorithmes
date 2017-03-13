@@ -1,10 +1,47 @@
+function bfs(G,s)
+{
+var queue=[];
+var u ;
+queue.push(s);
+while ( queue.length !==0)
+{
+  u=queue.shift();
+  
+  for( var i=0;i<G.length ;i++)
+{
+  if( G[i].vertex == u)
+  {
+    var j=i;
+  }
+}
+
+for( var i=0 ;i<G[j].edges.length;i++)
+{
+  if(color[ G[j].edges[i] ] == "white")
+  {
+    color[ G[j].edges[i] ]="gray";
+    d[ G[j].edges[i] ]= d[j]+1;
+    p[ G[j].edges[i] ] =u;
+    queue.(q.v)
+  }
+}
+
+}
+
+
+
+ return j;
+}
+
+
+
 function data(vertex,edges)
 {
-  this.vertext=vertex;
+  this.vertex=vertex;
   this.edges=edges;
 }
 
-var obj=[
+var G=[
   
  new data("a",["b","d"]),
   new data("b",["a","d","e"]),
@@ -17,4 +54,4 @@ var obj=[
   
 ];
 
-console.log(obj);
+console.log(bfs(G,"a"));
