@@ -1,0 +1,20 @@
+function data(vertex,edges)
+{
+  this.vertext=vertex;
+  this.edges=edges;
+}
+
+var obj=[
+  
+ new data("a",["b","d"]),
+  new data("b",["a","d","e"]),
+  new data("d",["b","g","f"]),
+  new data("e",["b","g","i"]),
+  new data("f",["d","g","h"]),
+  new data("g",["d","e","i","f","h"]),
+  new data("h",["f","g","i"]),
+  new data("i",["e","g","h"])
+  
+];
+
+console.log(obj);
