@@ -2,47 +2,53 @@ function bfs(G,s)
 {
   var color=[];
   var queue=[];
-  var d=[];
- // var p=[];
   
     var u ;
     
      queue.push(s);
   
-        for(var i=0;i<G.length;i++)
-        {
-          color[i]="white";
-        }
-
-  u=queue.shift();
-  
-    for( var i=0;i<G.length ;i++)
-        {
-            if( G[i].vertex == u)
-                {
-                  var j=i;
-                 }     
-        }
-
-  for( var i=0 ;i<G[j].edges.length;i++)
-    {
-      if( color[i+1] == "white" )
-        {
-          color[i+1]="gray";
-          
-          queue.push( G[j].edges[i] );
-        }
-    }
-    
-    color[j]="Black";
+                          for(var i=0;i<G.length;i++)
+                          {
+                            color[i]="white";
+                          }
+                                      
+                                     while( queue.length !== 0 )
+                                     {
+                                       
+                                     
+                                      u=queue.shift();
+                                     
+                                        for( var i=0;i<G.length ;i++)
+                                            {
+                                                if( G[i].vertex == u)
+                                                    {
+                                                      var j=i;
+                                                     }     
+                                            }
+                                    
+                                      for( var i=0 ;i<G[j].edges.length;i++)
+                                        {
+                                          for(var k=0 ;k<G.length;k++)
+                                          {
+                                            if( G[j].edges[i]== G[k].vertex )
+                                            {
+                                              var woo= k;
+                                            }
+                                          }
+                                          
+                                          
+                                          if( color[woo] == "white" )
+                                            {
+                                              color[woo]="gray";
+                                              
+                                              queue.push( G[j].edges[i] );
+                                            }
+                                        }
+                                        
+                                        color[j]="Black";
+                                     }
+ return  queue ;
 }
-
-
-
- return color  ;
-}
-
-
 
 function data(vertex,edges)
 {
