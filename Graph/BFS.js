@@ -44,11 +44,11 @@ function bfs(G,s)
                                             {
                                               color[woo]="gray";
                                               d[woo]=d[j]+1;
-                                              p[j]=u;
+                                              p[i]=u; 
                                               queue.push( G[j].edges[i] );
                                             }
                                         }
-                                        
+                                       
                                         color[j]="Black";
                                      }
  return  p;
