@@ -3,7 +3,7 @@ function bfs(G,s)
   var color=[];
   var queue=[];
   var d=[];
-  var p=[];
+ // var p=[];
   
     var u ;
     
@@ -14,8 +14,6 @@ function bfs(G,s)
           color[i]="white";
         }
 
-while ( queue.length !==0)
-{
   u=queue.shift();
   
     for( var i=0;i<G.length ;i++)
@@ -26,25 +24,22 @@ while ( queue.length !==0)
                  }     
         }
 
-  for( var i=1 ;i<=G[j].edges.length;i++)
+  for( var i=0 ;i<G[j].edges.length;i++)
     {
-      if(color[i] == "white")
+      if( color[i+1] == "white" )
         {
-          color[i]="gray";
+          color[i+1]="gray";
           
-          d[i]= d[0]+1;
-          p[i] =u;
           queue.push( G[j].edges[i] );
         }
     }
     
-    color[0]="Black";
-
+    color[j]="Black";
 }
 
 
 
- return p;
+ return color  ;
 }
 
 
