@@ -2,6 +2,9 @@ function bfs(G,s)
 {
   var color=[];
   var queue=[];
+  var d=[0];
+  var p=[];
+  
   
     var u ;
     
@@ -40,14 +43,15 @@ function bfs(G,s)
                                           if( color[woo] == "white" )
                                             {
                                               color[woo]="gray";
-                                              
+                                              d[woo]=d[j]+1;
+                                              p[j]=u;
                                               queue.push( G[j].edges[i] );
                                             }
                                         }
                                         
                                         color[j]="Black";
                                      }
- return  queue ;
+ return  p;
 }
 
 function data(vertex,edges)
