@@ -13,7 +13,7 @@ void print_path(int start , int finish)
    {
        cout<<" "<<p[start]<<endl;
    }
-   else if( p[finish]== NULL) {
+   else if( p[finish]== -1 ) {
         cout<<"No path from:"<<start<<"to"<<finish<<"exits";
    }
    else
