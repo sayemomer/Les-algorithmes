@@ -1,92 +1,37 @@
-function prim(graph,cost)
+function prim(cost_graph)
 
 {
    var t=[];
-   t[0]=0; // t= a spanning tree containing a single node s;
-   var edges=[];
-   var least_cost=[];
-    var counterForT =0;
+   t[3]=0; // t= a spanning tree containing a single node s;
+   var k=[];   // for verfying each node
+   var distance=[]; // measuring mst distance
+   distance[3]=0;
     
-  for( var j=0;j<graph.length;j++ ) 
+  
+  k[3]="true";
+  
+    
+  for(let i=0;i<cost_graph.length;i++ ) 
   {
-    if( graph[0][j]==1 )
+    if( cost_graph[3][i] > 0 )
     {
-      edges.push(j); //E = set of edges adjacent to s;
+       t[i]=3;//E = set of edges adjacent to s;
+       distance[i]=3;
     }
   }
   
- while( t.length !== graph.length ) //while T does not contain all the nodes
+ while( k.length !== cost_graph.length ) //while T does not contain all the nodes
  {
      
-     
-    
-    // comparing and swaping cost and edges parally 
-  for( var k=0 ;k<edges.length ;k++)
-    {
-      for(var j=1 ;j<edges.length;j++)
-                    {
-                      if( cost[t[ counterForT ]] [ edges[k] ] > cost[t[ counterForT ]] [ edges[j] ]    )
-                       {
-                                    var temp;
-  
-                                      temp=edges[k];
-                                      edges[k]=edges[j];
-                                      edges[j]=temp;
-                          
-                                        
-                                 }
-               
-                         }
-           
-      
-    }
-  
-         lc=edges.shift(); //remove an edge  of lowest cost from e
-         
-         for( var m=0 ;m<t.length;m++)  
-         {
-           if(t[m]==lc)
-          {
-            lc=edges.shift(); //if edge is already in t then discard edge
-          }
-         }
-       
-         
-         
-         counterForT++;
-         
-         t[counterForT]=lc; //storing the current node
-       //  least_cost.push( c.shift() ); //storing current cost
-         
-         //add to E the edges adjacent to w
-              for( var j=0;j<graph.length;j++)
-                 {
-                    if( graph[lc][j]==1)
-                         {
-                           edges.push(j);
-                         }
-                }
                 
  }
+ 
   
-  
-  return t ;  
+  return p;  
   
 }
 
-var graph=[
-  [0,1,0,1,0,0,0,0,0,0],
-  [1,0,1,1,0,0,0,0,0,1],
-  [0,1,0,0,1,1,0,0,0,0],
-  [1,1,0,0,0,0,0,1,0,1],
-  [0,0,1,0,0,0,1,0,0,0],
-  [0,0,1,0,0,0,1,0,1,0],
-  [0,0,0,0,1,1,0,0,1,1],
-  [0,0,0,1,0,0,0,0,0,1],
-  [0,0,0,0,0,1,1,0,0,1],
-  [0,1,0,1,0,0,1,1,1,0],
-  ];
-var cost=[
+var cost_graph=[
   [0,4,0,1,0,0,0,0,0,0],
   [4,0,4,4,0,0,0,0,0,10],
   [0,4,0,0,2,1,0,0,0,0],
@@ -100,4 +45,4 @@ var cost=[
   
 ];
 
-console.log( prim(graph,cost) );
+console.log( prim(cost_graph) );
