@@ -7,18 +7,23 @@ string color[100];
 int d[50];
 int p[50];
 
+
 void print_path(int start , int finish)
 {
    if( start == finish )
    {
-       cout<<" "<<p[start]<<endl;
+       cout<<" "<<start;
    }
-   else if( p[finish]== NULL) {
+   else if( p[finish]<0  ) {
         cout<<"No path from:"<<start<<"to"<<finish<<"exits";
    }
    else
+   {
     print_path( start , p[finish]);
-   cout<<" "<<p[finish];
+    cout<<" "<<finish;
+   }
+
+
 
 
 }
@@ -99,6 +104,12 @@ int main()
      cout<<"Distance from: "<<source<<" to "<<i<<" is "<<d[i]<<endl ;
   }
 
+  for( int i=0 ;i< vertices ;i++)
+   {
+
+      cout<<""<<p[i];
+   }
+
   cout<<"Enter the start and end vertex to print path :"<<endl;
   cin>>start>>finish;
 
@@ -109,6 +120,8 @@ cout<<"Enter vertices to find distance:"<<endl;
 cin>>v1>>v2;
   bfs(v1);
    cout<<"Distance from: "<<v1<<" to "<<v2<<" is "<<d[v2];
+
+
 
     return 0;
 }
