@@ -6,9 +6,15 @@ function prim(cost_graph)
    var k=[];   // for verfying each node
    var distance=[]; // measuring mst distance
    distance[3]=0;
-    
-  
-  k[3]="true";
+   k[3]="true";
+   var min_item;
+   var min_index;
+   
+   
+   for( let i=0;i<cost_graph.length;i++  ){
+     
+     distance[i]=999;
+   }
   
     
   for(let i=0;i<cost_graph.length;i++ ) 
@@ -16,32 +22,45 @@ function prim(cost_graph)
     if( cost_graph[3][i] > 0 )
     {
        t[i]=3;//E = set of edges adjacent to s;
-       distance[i]=3;
+       distance[i]=cost_graph[3][i];
     }
   }
   
- while( k.length !== cost_graph.length ) //while T does not contain all the nodes
- {
-     
-                
- }
+// while( k.length !== cost_graph.length ) //while T does not contain all the nodes
+ //{
+            min_item = Math.min(...distance);
+       min_index= distance.indexOf( Math.min(...distance) ) ;//find the index of min array ;
+      k[min_index]="true";
+      distance[min_index]=999;
+      
+   for(let i=0;i<cost_graph.length;i++ ) 
+ // {
+    if( cost_graph[min_index][5] > 0 && cost_graph[min_index][5]<distance[5])
+    {
+       t[5]= min_index;//E = set of edges adjacent to s;
+       distance[5]=cost_graph[3][5];
+    }
+ // }
  
   
-  return p;  
+                
+// }
+
+  
+  return  distance ;  
   
 }
 
 var cost_graph=[
-  [0,4,0,1,0,0,0,0,0,0],
-  [4,0,4,4,0,0,0,0,0,10],
-  [0,4,0,0,2,1,0,0,0,0],
-  [1,4,0,0,0,0,0,5,0,6],
-  [0,0,2,0,0,0,2,0,0,0],
-  [0,0,1,0,0,0,3,0,5,0],
-  [0,0,0,0,2,3,0,0,3,4],
-  [0,0,0,5,0,0,0,0,0,2],
-  [0,0,0,0,0,5,3,0,0,3],
-  [0,10,0,6,0,0,4,2,3,0],
+  
+[0, 8 ,0 ,0 ,0 ,10 ,0, 4],
+[8 ,0 ,4 ,0 ,10 ,7 ,0 ,9],
+[0, 4 ,0, 3 ,0 ,3 ,0 ,0],
+[0 ,0 ,3 ,0 ,25 ,18 ,2 ,0],
+[0 ,10 ,0 ,25 ,0 ,2 ,7 ,0],
+[10, 7, 3 ,18 ,2 ,0 ,0 ,0],
+[0 ,0 ,0 ,2 ,7 , 0 ,0 ,0],
+[4, 9 ,0 ,0, 0, 0 ,3 ,0],
   
 ];
 
