@@ -1,12 +1,13 @@
-function prim(cost_graph)
+function prim( cost_graph , start )
 
 {
    var t=[];
-   t[3]=0; // t= a spanning tree containing a single node s;
+   t[start]=0; // t= a spanning tree containing a single node s;
    var k=[];   // for verfying each node
+   k[start]="true";
    var distance=[]; // measuring mst distance
-   distance[3]=0;
-   k[3]="true";
+   distance[start]=0;
+   
    var min_item;
    var min_index;
    var min_cost=0;
@@ -21,10 +22,10 @@ function prim(cost_graph)
     
   for(let i=0;i<cost_graph.length;i++ ) 
  {
-      if( cost_graph[3][i] > 0 )
+      if( cost_graph[start][i] > 0 )
           {
               t[i]=3;//E = set of edges adjacent to s;
-               distance[i]=cost_graph[3][i];
+               distance[i]=cost_graph[start][i];
           }
  }
   
@@ -67,4 +68,4 @@ var cost_graph=[
   
 ];
 
-console.log( prim(cost_graph) );
+console.log( prim(cost_graph, 3) );
