@@ -1,3 +1,5 @@
+// to compile use --> https://repl.it/repls/StupendousShinyPlan
+//Happy hack :) 
 var crossoverPartner=[];
 var crossoverPoint=[];
 var _ = require('lodash');
