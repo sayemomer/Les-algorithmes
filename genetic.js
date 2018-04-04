@@ -12,7 +12,6 @@ function binaryToDecimal(population){
   
 }
 
-
 function crossOver(population){
   
     for( let i=0 ;i< population.length ;i++){
@@ -21,12 +20,25 @@ function crossOver(population){
     }
 }
 
+function flip(dna){
+  
+  for(let i=0 ;i<dna.length;i++){
+    if(dna[i]==="1"){
+      dna[i]="0";
+    }
+    else if( dna[i]==="0"){
+      dna[i]="1";
+    }
+  }
+  return dna;
+}
+
 
 function mutationHelper(dna1,dna2,crosspoint){
   
   var sliceDna1=_.slice(dna1,0,crosspoint);
   var sliceDna2=_.slice(dna2,crosspoint);
-  var mutedDna= sliceDna1.concat( sliceDna2);
+  var mutedDna= sliceDna1.concat( flip(sliceDna2) );
   return mutedDna;
     
 }
@@ -45,7 +57,17 @@ function mutation(population){
 (function main(){
   
 var population = ["01101","11000","01000","10011"];
- crossOver(population); 
- console.log( binaryToDecimal( mutation(population) ) );
+var count=0;
+ for( ; ; ){
+  count++;
+  console.log(count);
+  crossOver(population); 
+  var newPopulation=binaryToDecimal( mutation(population) );
+  if(_.indexOf(newPopulation,31)!== -1){
+    console.log(count);
+    console.log(newPopulation);
+    break;
+  }
+ }
   
 })();
