@@ -64,7 +64,6 @@ var count=0;
   crossOver(population); 
   var newPopulation=binaryToDecimal( mutation(population) );
   if(_.indexOf(newPopulation,31)!== -1){
-    console.log(count);
     console.log(newPopulation);
     break;
   }
