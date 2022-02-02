@@ -1,5 +1,6 @@
+from typing import List
 class Solution:
-    def intersect(self, nums1, nums2):
+    def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
 
         max_nums =[]
         min_nums =[]
@@ -22,7 +23,7 @@ class Solution:
 
 ss = Solution()
 rs = ss.intersect([3,1,2],[1,1])
-# rs = ss.intersect([1,2,2,1],[2,2])
-# rs = ss.intersect([4,9,5],[9,4,9,8,4])
+rs = ss.intersect([1,2,2,1],[2,2])
+rs = ss.intersect([4,9,5],[9,4,9,8,4])
 print(rs)
 
