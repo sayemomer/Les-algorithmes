@@ -1,6 +1,8 @@
 from typing import List
 class Solution:
-    def maxProfit(self, prices: List[int]) -> int:
+
+  # O(n^2) solution
+    def maxProfit_one(self, prices: List[int]) -> int:
           profit=0
           for i in range(len(prices)):
             for j in range(i+1,len(prices)):
@@ -10,6 +12,18 @@ class Solution:
                   profit = profit_money
           return profit
 
+    # O(n) solution
+    def maxProfit_two(self, prices: List[int]) -> int:
+      maxPf = 0
+      minBuy= prices[0] 
+
+      for currentBuy in prices:
+        maxPf = max((currentBuy-minBuy),maxPf)
+        minBuy = min(currentBuy,minBuy)
+      return maxPf
+
 ss = Solution()
-rs = ss.maxProfit([7,1,5,3,6,4])
+rs = ss.maxProfit_one([7,1,5,3,6,4])
+print(rs)
+rs = ss.maxProfit_two([7,6,4,3,1])
 print(rs)
