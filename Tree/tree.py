@@ -9,7 +9,7 @@ class BinaryTree(object):
     def __init__(self, root):
         self.root = Node(root)
 
-    def print_tree(self, traversal_type):
+    def print_tree(self,tree, traversal_type):
         if traversal_type == "preorder":
             return self.preorder_print(tree.root, "")
         elif traversal_type == "inorder":
@@ -79,15 +79,15 @@ class BinaryTree(object):
 
 
 # Set up tree:
-tree = BinaryTree(3)
-tree.root.left = Node(9)
-tree.root.right = Node(20)
-tree.root.left.left = Node(4)
-# tree.root.left.right = Node(5)
-# tree.root.right.left = Node(15)
-tree.root.right.right = Node(7)
+# tree = BinaryTree(3)
+# tree.root.left = Node(9)
+# tree.root.right = Node(20)
+# tree.root.left.left = Node(4)
+# # tree.root.left.right = Node(5)
+# # tree.root.right.left = Node(15)
+# tree.root.right.right = Node(7)
 
 # print(tree.print_tree("preorder"))
 # print(tree.print_tree("inorder"))
 # print(tree.print_tree("postorder"))
-print(tree.print_tree("levelorder"))
+# print(tree.print_tree("levelorder"))
