@@ -1,7 +1,6 @@
-# 02/04/2022 00:42	Accepted	251 ms	14 MB	python3
+# 03/16/2022 18:29	Accepted	144 ms	14 MB	python3
 
-from re import sub
-from typing import List
+import collections
 
 
 class Solution:
@@ -53,30 +52,24 @@ class Solution:
         else:
             return True
 
-    def checkColumn(self, board, col, target):
-        counter = 0
-        for i in range(len(board[0])):
-            if board[i][col] == target:
-                counter += 1
-        if counter > 1:
+    def checkColumn(self, col, target, colHashMap):
+        if target in colHashMap[col]:
             return False
         else:
+            colHashMap[col].add(target)
             return True
 
-    def checkRow(self, board, row, target):
-        counter = 0
-        for i in range(len(board[row])):
-            if board[row][i] == target:
-                counter += 1
-        if counter > 1:
+    def checkRow(self, row, target, rowHashTable):
+        if target in rowHashTable[row]:
             return False
         else:
+            rowHashTable[row].add(target)
             return True
 
-    def checkValid(self, board, row, col, target):
+    def checkValid(self, board, row, col, target, rowHashMap, colHashMap):
 
-        rowchk = self.checkRow(board, row, target)
-        colchk = self.checkColumn(board, col, target)
+        rowchk = self.checkRow(row, target, rowHashMap)
+        colchk = self.checkColumn(col, target, colHashMap)
         subBoxchk = self.checkSubBox(board, row, col, target)
 
         if rowchk == False or colchk == False or subBoxchk == False:
@@ -84,14 +77,17 @@ class Solution:
         else:
             return True
 
-    def isValidSudoku(self, board: List[List[str]]) -> bool:
+    def isValidSudoku(self, board) -> bool:
 
-        for i in range(9):
-            for j in range(9):
-                if board[i][j] != ".":
-                    print(board[i][j])
-                    if self.checkValid(board, i, j, board[i][j]) == False:
+        rowHashMap = collections.defaultdict(set)
+        colHashMap = collections.defaultdict(set)
+
+        for row in range(9):
+            for col in range(9):
+                if board[row][col] != ".":
+                    if self.checkValid(board, row, col, board[row][col], rowHashMap, colHashMap) == False:
                         return False
+        return True
 
 
 ss = Solution()
