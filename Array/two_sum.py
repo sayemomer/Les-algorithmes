@@ -26,3 +26,5 @@ def find_sum(lst, k):
 
 
 print(find_sum([1, 21, 3, 14, 5, 60, 7, 6], 81))
+
+
