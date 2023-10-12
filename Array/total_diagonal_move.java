@@ -44,12 +44,21 @@ public class total_diagonal_move {
             //     }
             // }
 
+            if(( (firstDiagonal.containsKey(start) && firstDiagonal.containsKey(end))
+             || (secondDiagonal.containsKey(start) && secondDiagonal.containsKey(end)) ) && 
+             start.equals(end)){
+                System.out.println(1);
+                return;
+            }
+
             if ( ( firstDiagonal.containsKey(start) || secondDiagonal.containsKey(start) ) && (firstDiagonal.containsKey(end)
                     || secondDiagonal.containsKey(end) ) ) {
                 if ( (firstDiagonal.containsKey(start) && firstDiagonal.containsKey(end)) || (secondDiagonal.containsKey(start) && secondDiagonal.containsKey(end)) ) {
                     System.out.println(1);
+                    return;
                 }else{
                     System.out.println(2);
+                    return;
                 }
                 // if (firstDiagonal.containsKey(start) && secondDiagonal.containsKey(end)) {
                 //     System.out.println(2);
@@ -61,6 +70,7 @@ public class total_diagonal_move {
                 // }
             } else {
                 System.out.println(-1);
+                return;
             }
 
         } catch (Exception e) {
