@@ -8,6 +8,62 @@ public class PlayerManagementSystem {
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_RESET = "\u001B[0m";
 
+
+    //search all cricketes whose strike rate is better then the user value and economy rate is lower than the user value
+    public static void displayAllRounders(Cricketer[] cricketers ,float strikeRate, float economyRate) {
+        //check if the crickerter ARRAY is empty
+        if (cricketers[0] == null) {
+            System.out.println(ANSI_RED + "There is no cricketer in the team!" + ANSI_RESET);
+        }
+        else{
+            int count = 0;
+            for (int i = 0; i < cricketers.length; i++) {
+                if (cricketers[i].getStrikeRate() > strikeRate && cricketers[i].getEconomyRate() < economyRate) {
+                    System.out.println("Cricketer: # " + i);
+                    System.out.println("Cricketer ID: " + cricketers[i].getCricketerID());
+                    System.out.println("Cricketer Name: " + cricketers[i].getCricketerName());
+                    System.out.println("Batting Average: " + cricketers[i].getBattingAvg());
+                    System.out.println("Bowling Average: " + cricketers[i].getBowlingAvg());
+                    System.out.println("Strike Rate: " + cricketers[i].getStrikeRate());
+                    System.out.println("Economy Rate: " + cricketers[i].getEconomyRate());
+                    System.out.println("Availability: " + cricketers[i].isAvailable());
+                    count++;
+                }
+            }
+
+            //check if there is no all rounder in the team
+            
+            if(count == 0){
+                System.out.println(ANSI_RED + "There is no all rounder in the team!" + ANSI_RESET);
+            }
+
+        }
+    }
+
+
+
+    //display cricketes with bowlingAvg greater than user value
+    public static void displayCricketers(Cricketer[] cricketers, float userValue) {
+        //check if the crickerter ARRAY is empty
+        if (cricketers[0] == null) {
+            System.out.println(ANSI_RED + "There is no cricketer in the team!" + ANSI_RESET);
+        }
+        else{
+            for (int i = 0; i < cricketers.length; i++) {
+                if (cricketers[i].getBowlingAvg() < userValue) {
+                    System.out.println("Cricketer: # " + i);
+                    System.out.println("Cricketer ID: " + cricketers[i].getCricketerID());
+                    System.out.println("Cricketer Name: " + cricketers[i].getCricketerName());
+                    System.out.println("Batting Average: " + cricketers[i].getBattingAvg());
+                    System.out.println("Bowling Average: " + cricketers[i].getBowlingAvg());
+                    System.out.println("Strike Rate: " + cricketers[i].getStrikeRate());
+                    System.out.println("Economy Rate: " + cricketers[i].getEconomyRate());
+                    System.out.println("Availability: " + cricketers[i].isAvailable());
+                }
+            }
+        }
+    }
+
     // add the cricketers to the array
 
     public static int addCricketer(Scanner sc, Cricketer[] cricketers, int num, int maxCricketers) {
@@ -263,6 +319,22 @@ public class PlayerManagementSystem {
                             }
                         }
 
+                    }
+                    else if(choice == 3){
+                        System.out.println("Enter the bowling average: ");
+                        float userValue = sc.nextFloat();
+                        displayCricketers(cricketers, userValue);
+                    }
+                    else if(choice == 4){
+                        System.out.println("Enter the strike rate: ");
+                        float strikeRate = sc.nextFloat();
+                        System.out.println("Enter the economy rate: ");
+                        float economyRate = sc.nextFloat();
+                        displayAllRounders(cricketers, strikeRate, economyRate);
+                    }
+                    else if(choice == 5){
+                        System.out.println("Thank you for using the program!");
+                        System.exit(0);
                     }
 
                 } else {
