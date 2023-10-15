@@ -68,6 +68,10 @@ class Cricketer{
         return isAvaialable;
     }
 
+    public void setCricketerName(String cricketerName) {
+        this.cricketerName = cricketerName;
+    }
+
 
     public void setBattingAvg(float battingAvg) {
         this.battingAvg = battingAvg;
@@ -110,24 +114,5 @@ class Cricketer{
         Cricketer other = (Cricketer) o; // Cast the object to your class type
         return cricketerID == other.cricketerID && isAvaialable == other.isAvaialable; // Define your equality criteria
     }
-
-
-
-    public static void main(String[] args) {
-
-        System.out.println(Cricketer.getNumberOfCricketers());
-
-        Cricketer c1 = new Cricketer("Omer", 50, 20, 100, 5, true);
-        System.out.println(c1.bowlingAvg);
-        c1.setBowlingAvg(50);
-        System.out.println(c1.bowlingAvg);
-        System.out.println(c1.toString());
-        System.out.println(c1.count);
-
-        Cricketer c2 = new Cricketer("Sayem", 50, 20, 100, 5, true);
-        System.out.println(Cricketer.getNumberOfCricketers());
-        System.out.println(c2.equals(c1));
-
-    } 
 
 }
