@@ -99,6 +99,8 @@ public class PlayerManagementSystem {
             maxCricketers = maxCricketers - 1;
         }
 
+        
+
         return maxCricketers;
 
     }
@@ -154,38 +156,42 @@ public class PlayerManagementSystem {
                         System.out.println("Enter the new name: ");
                         String name = sc.next();
                         cricketers[i].setCricketerName(name);
-                        break;
                     }
                     else if(choice == 2){
                         System.out.println("Enter the new batting average: ");
                         float bAvg = sc.nextFloat();
                         cricketers[i].setBattingAvg(bAvg);
-                        break;
                     }
                     else if(choice == 3){
                         System.out.println("Enter the new bowling average: ");
                         float bowAvg = sc.nextFloat();
                         cricketers[i].setBowlingAvg(bowAvg);
-                        break;
                     }
                     else if(choice == 4){
                         System.out.println("Enter the new strike rate: ");
                         float sRate = sc.nextFloat();
                         cricketers[i].setStrikeRate(sRate);
-                        break;
                     }
                     else if(choice == 5){
                         System.out.println("Enter the new economy rate: ");
                         float eRate = sc.nextFloat();
                         cricketers[i].setEconomyRate(eRate);
-                        break;
                     }
                     else if(choice == 6){
                         System.out.println("Enter the new availability: ");
                         boolean isAval = sc.nextBoolean();
                         cricketers[i].setAvailable(isAval);
-                        break;
                     }
+            System.out.println("The updated information of the cricketer is: ");
+            //Cricketer: # x (index of the Cricketer in the CricketerBase array
+            System.out.println("Cricketer: # " + i);
+            System.out.println("Cricketer ID: " + cricketers[i].getCricketerID());
+            System.out.println("Cricketer Name: " + cricketers[i].getCricketerName());
+            System.out.println("Batting Average: " + cricketers[i].getBattingAvg());
+            System.out.println("Bowling Average: " + cricketers[i].getBowlingAvg());
+            System.out.println("Strike Rate: " + cricketers[i].getStrikeRate());
+            System.out.println("Economy Rate: " + cricketers[i].getEconomyRate());
+            System.out.println("Availability: " + cricketers[i].isAvailable());
                 }
                 else if(choice == 7){
                     break;
@@ -198,17 +204,10 @@ public class PlayerManagementSystem {
   
             }
             //print the updated information of the cricketer
-            System.out.println("The updated information of the cricketer is: ");
-            //Cricketer: # x (index of the Cricketer in the CricketerBase array
-            System.out.println("Cricketer: # " + i);
-            System.out.println("Cricketer ID: " + cricketers[i].getCricketerID());
-            System.out.println("Cricketer Name: " + cricketers[i].getCricketerName());
-            System.out.println("Batting Average: " + cricketers[i].getBattingAvg());
-            System.out.println("Bowling Average: " + cricketers[i].getBowlingAvg());
-            System.out.println("Strike Rate: " + cricketers[i].getStrikeRate());
-            System.out.println("Economy Rate: " + cricketers[i].getEconomyRate());
-            System.out.println("Availability: " + cricketers[i].isAvailable());
-            break;
+
+            // print only if the user has changed any information
+
+
         }
         }
     }
@@ -223,7 +222,13 @@ public class PlayerManagementSystem {
                 "Please enter your choice >");
 
         Scanner sc = new Scanner(System.in);
-        int choice = Integer.parseInt(sc.nextLine());
+        //keep asking the user unless the user enters a valid integer
+        while (!sc.hasNextInt()) {
+            System.out.println("Invalid input!");
+            System.out.println("Please enter your choice >");
+            sc.next();
+        }
+        int choice = sc.nextInt();
 
         return choice;
     }
@@ -237,15 +242,23 @@ public class PlayerManagementSystem {
         int maxCricketers;
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the maximum number of cricketers in the team: ");
-        maxCricketers = Integer.parseInt(sc.nextLine());
+
+        //keep asking the user unless the user enters a valid integer
+        while (!sc.hasNextInt()) {
+            System.out.println("Invalid input!");
+            System.out.println("Enter the maximum number of cricketers in the team: ");
+            sc.next();
+        }
+        maxCricketers = sc.nextInt();
 
         Cricketer[] cricketers = new Cricketer[maxCricketers];
 
         for (;;) {
-            if (PlayerManagementSystem.maxPasswordAttempts > 3) {
-                System.out.println("Program detected suspicious activities and will terminate immediately!");
+            if (PlayerManagementSystem.maxPasswordAttempts > 4) {
+                System.out.println( ANSI_RED + "--------  Program detected suspicious activities and will terminate immediately! -------- "+ ANSI_RESET);
                 System.exit(0);
             } else {
+                
                 int choice = mainMenu();
                 if (choice >= 1 && choice <= 5) {
                     if (choice == 1) {
@@ -254,6 +267,8 @@ public class PlayerManagementSystem {
                             System.out.println("Enter the password: ");
                             String code = sc.next();
                             if (code.equals(password)) {
+                                //if the password is correct, the maximum try to check suspacious attemps will be reset to 1
+                                PlayerManagementSystem.maxPasswordAttempts = 1;
                                 System.out.println("Enter the number of cricketers you want to add: ");
                                 int num = sc.nextInt();
                                 // check if the number of cricketers is greater than the max number of
@@ -274,7 +289,7 @@ public class PlayerManagementSystem {
                                 }
 
                             } else {
-                                System.out.println("Wrong password");
+                                System.out.println(ANSI_RED + "Wrong password !!!" + ANSI_RESET);
                                 passwordAttempts++;
 
                             }
@@ -289,6 +304,8 @@ public class PlayerManagementSystem {
 
                     }
                     else if(choice == 2){
+                        //if the uses choose other options, the program will reset the maximum number of password attempts to 1
+                        PlayerManagementSystem.maxPasswordAttempts = 1;
                         int passwordAttempts = 0;
                         while (passwordAttempts <= 2) {
                             System.out.println("Enter the password: ");
@@ -321,11 +338,15 @@ public class PlayerManagementSystem {
 
                     }
                     else if(choice == 3){
+                        //if the uses choose other options, the program will reset the maximum number of password attempts to 1
+                        PlayerManagementSystem.maxPasswordAttempts = 1;
                         System.out.println("Enter the bowling average: ");
                         float userValue = sc.nextFloat();
                         displayCricketers(cricketers, userValue);
                     }
                     else if(choice == 4){
+                        //if the uses choose other options, the program will reset the maximum number of password attempts to 1
+                        PlayerManagementSystem.maxPasswordAttempts = 1;
                         System.out.println("Enter the strike rate: ");
                         float strikeRate = sc.nextFloat();
                         System.out.println("Enter the economy rate: ");
