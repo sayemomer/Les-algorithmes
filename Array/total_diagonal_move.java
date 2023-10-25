@@ -1,82 +1,49 @@
-package Array;
+// Total Diagonal moves
+// You’re given an N x N grid, the columns are represented as letters A, B, C and the rows are
+// represented as numbers starting from 0. Find the minimum number of diagonal moves required
+// to move from the source to destination.
+// Diagonal moves are described as moving diagonally on the grid, if you’re moving A0 to C2 i.e.
+// A0 -> B1 -> C2 then it counts as 1 move since they lie on the same diagonal. If you change
+// the direction of diagonal, it will count as another move.
+// Input:
+// The first line represents N.
+// The second line represents the starting location.
+// The third line represents the destination location.
+// Output:
+// Print minimum number of diagonal moves, else print -1 if reaching the destination is not
+// possible
 
-import java.util.HashMap;
-import java.util.Scanner;
+// Example:
+// Input:
+// 3
+// A0
+// C2
+// Output:
+// 1
 
-public class total_diagonal_move {
+
+import java.util.*;
+
+class total_diagonal_move {
     public static void main(String[] args) {
-        // take user input
-        // The first line represents N.
-        // The second line represents the starting location.
-        // The third line represents the destination location
-        try (Scanner sc = new Scanner(System.in)) {
-            int n = Integer.parseInt(sc.nextLine());
-            String start = sc.nextLine();
-            String end = sc.nextLine();
-
-            HashMap<String, Integer> firstDiagonal = new HashMap<>();
-            HashMap<String, Integer> secondDiagonal = new HashMap<>();
-            
-
-            int x = 65;
-            int y = n - 1;
-
-            for (int i = 0; i < n; i++) {
-                String letter = Character.toString(x);
-                firstDiagonal.put(letter + i, i);
-                secondDiagonal.put(letter + y, i);
-                x++;
-                y--;
-            }
-
-            // for (int i = 0; i < grid.length; i++) {
-            //     for (int j = 0; j < grid.length; j++) {
-            //         String letter = Character.toString(x);
-            //         grid[i][j] = letter + i;
-            //         x++;
-            //     }
-            //     x = 65;
-            // }
-
-            //print the grid
-            // for (int i = 0; i < grid.length; i++) {
-            //     System.out.println();
-            //     for (int j = 0; j < grid.length; j++) {
-            //         System.out.print(grid[i][j] + " ");
-            //     }
-            // }
-
-            if(( (firstDiagonal.containsKey(start) && firstDiagonal.containsKey(end))
-             || (secondDiagonal.containsKey(start) && secondDiagonal.containsKey(end)) ) && 
-             start.equals(end)){
-                System.out.println(1);
-                return;
-            }
-
-            if ( ( firstDiagonal.containsKey(start) || secondDiagonal.containsKey(start) ) && (firstDiagonal.containsKey(end)
-                    || secondDiagonal.containsKey(end) ) ) {
-                if ( (firstDiagonal.containsKey(start) && firstDiagonal.containsKey(end)) || (secondDiagonal.containsKey(start) && secondDiagonal.containsKey(end)) ) {
-                    System.out.println(1);
-                    return;
-                }else{
-                    System.out.println(2);
-                    return;
-                }
-                // if (firstDiagonal.containsKey(start) && secondDiagonal.containsKey(end)) {
-                //     System.out.println(2);
-                //     return;
-                // }
-                // if (firstDiagonal.containsKey(end) && secondDiagonal.containsKey(start)) {
-                //     System.out.println(2);
-                //     return;
-                // }
-            } else {
-                System.out.println(-1);
-                return;
-            }
-
-        } catch (Exception e) {
-            // TODO: handle exception
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        String start = sc.next();
+        String end = sc.next();
+        int x1 = start.charAt(0) - 'A';
+        int y1 = start.charAt(1) - '0';
+        int x2 = end.charAt(0) - 'A';
+        int y2 = end.charAt(1) - '0';
+        int x = Math.abs(x1 - x2);
+        int y = Math.abs(y1 - y2);
+        if (x == y) {
+            System.out.println(1);
+        } else if (x % 2 == 0 && y % 2 == 0) {
+            System.out.println(2);
+        } else if (x % 2 != 0 && y % 2 != 0) {
+            System.out.println(2);
+        } else {
+            System.out.println(-1);
         }
     }
 }
