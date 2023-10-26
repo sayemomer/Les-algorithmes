@@ -94,13 +94,12 @@ class Cricketer{
     }
 
     public String toString() {
-        return "Cricketer [ID: " + cricketerID +
-               ", Name: " + cricketerName +
-               ", Batting Avg: " + battingAvg +
-               ", Bowling Avg: " + bowlingAvg +
-               ", Strike Rate: " + strikeRate +
-               ", Economy Rate: " + economyRate +
-               ", Available: " + isAvaialable + "]";
+
+        return "ID: " + cricketerID + "\nName: " + cricketerName + "\nBatting Average: " + 
+        battingAvg + "\nBalling Average: " + bowlingAvg + "\nStrike Rate: " + strikeRate + 
+        "\nEconomy Rate: " + economyRate + "\nAvailability: " + isAvaialable + "\n";
+
+
     }
 
     public static int getNumberOfCricketers(){
@@ -110,9 +109,8 @@ class Cricketer{
 
     public boolean equals(Object o) {
         if (this == o) return true; 
-        if (o == null || getClass() != o.getClass()) return false; // Check class compatibility
-        Cricketer other = (Cricketer) o; // Cast the object to your class type
-        return cricketerID == other.cricketerID && isAvaialable == other.isAvaialable; // Define your equality criteria
+        Cricketer other = (Cricketer) o; 
+        return cricketerID == other.cricketerID && isAvaialable == other.isAvaialable; 
     }
 
 }

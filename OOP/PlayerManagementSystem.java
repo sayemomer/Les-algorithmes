@@ -18,15 +18,9 @@ public class PlayerManagementSystem {
         else{
             int count = 0;
             for (int i = 0; i < cricketers.length; i++) {
-                if (cricketers[i].getStrikeRate() > strikeRate && cricketers[i].getEconomyRate() < economyRate) {
+                if (cricketers[i]!=null && cricketers[i].getStrikeRate() > strikeRate && cricketers[i].getEconomyRate() < economyRate) {
                     System.out.println("Cricketer: # " + i);
-                    System.out.println("Cricketer ID: " + cricketers[i].getCricketerID());
-                    System.out.println("Cricketer Name: " + cricketers[i].getCricketerName());
-                    System.out.println("Batting Average: " + cricketers[i].getBattingAvg());
-                    System.out.println("Bowling Average: " + cricketers[i].getBowlingAvg());
-                    System.out.println("Strike Rate: " + cricketers[i].getStrikeRate());
-                    System.out.println("Economy Rate: " + cricketers[i].getEconomyRate());
-                    System.out.println("Availability: " + cricketers[i].isAvailable());
+                    System.out.println(cricketers[i].toString());
                     count++;
                 }
             }
@@ -50,15 +44,9 @@ public class PlayerManagementSystem {
         }
         else{
             for (int i = 0; i < cricketers.length; i++) {
-                if (cricketers[i].getBowlingAvg() < userValue) {
+                if (cricketers[i]!= null && cricketers[i].getBowlingAvg() < userValue) {
                     System.out.println("Cricketer: # " + i);
-                    System.out.println("Cricketer ID: " + cricketers[i].getCricketerID());
-                    System.out.println("Cricketer Name: " + cricketers[i].getCricketerName());
-                    System.out.println("Batting Average: " + cricketers[i].getBattingAvg());
-                    System.out.println("Bowling Average: " + cricketers[i].getBowlingAvg());
-                    System.out.println("Strike Rate: " + cricketers[i].getStrikeRate());
-                    System.out.println("Economy Rate: " + cricketers[i].getEconomyRate());
-                    System.out.println("Availability: " + cricketers[i].isAvailable());
+                    System.out.println(cricketers[i].toString());
                 }
             }
         }
@@ -85,13 +73,7 @@ public class PlayerManagementSystem {
             //display the information of the cricketer
             System.out.println("The information of the cricketer is: ");
             System.out.println("Cricketer: # " + i);
-            System.out.println("Cricketer ID: " + cricketers[i].getCricketerID());
-            System.out.println("Cricketer Name: " + cricketers[i].getCricketerName());
-            System.out.println("Batting Average: " + cricketers[i].getBattingAvg());
-            System.out.println("Bowling Average: " + cricketers[i].getBowlingAvg());
-            System.out.println("Strike Rate: " + cricketers[i].getStrikeRate());
-            System.out.println("Economy Rate: " + cricketers[i].getEconomyRate());
-            System.out.println("Availability: " + cricketers[i].isAvailable());
+            System.out.println(cricketers[i].toString());
 
             // after successfull enrollment of a cricketer, the max number of cricketers
             // will be decreased by 1
@@ -112,30 +94,29 @@ public class PlayerManagementSystem {
         if (cricketers[0] == null) {
             System.out.println(ANSI_RED + "There is no cricketer in the team!" + ANSI_RESET);
             return false;
-        }
-        for (int i = 0; i < cricketers.length; i++) {
-            if (cricketers[i].getCricketerID() == cricketerID) {
+        }else{
+            
+            for (int i = 0; i < cricketers.length; i++) {
+            if (cricketers[i]!= null &&  cricketers[i].getCricketerID() == cricketerID) {
                 return true;
             }
         }
         return false;
+
+        }
+        
+        
     }
 
     // update cricketer by cricketerID
     public static void updateCricketer(Scanner sc, Cricketer[] cricketers, long cricketerID) {
         for (int i = 0; i < cricketers.length; i++) {
-            if (cricketers[i].getCricketerID() == cricketerID) {
+            if (cricketers[i]!= null && cricketers[i].getCricketerID() == cricketerID) {
                 //print the cricketer current information
                 System.out.println("The current information of the cricketer is: ");
                 //Cricketer: # x (index of the Cricketer in the CricketerBase array
                 System.out.println("Cricketer: # " + i);
-                System.out.println("Cricketer ID: " + cricketers[i].getCricketerID());
-                System.out.println("Cricketer Name: " + cricketers[i].getCricketerName());
-                System.out.println("Batting Average: " + cricketers[i].getBattingAvg());
-                System.out.println("Bowling Average: " + cricketers[i].getBowlingAvg());
-                System.out.println("Strike Rate: " + cricketers[i].getStrikeRate());
-                System.out.println("Economy Rate: " + cricketers[i].getEconomyRate());
-                System.out.println("Availability: " + cricketers[i].isAvailable());
+                System.out.println(cricketers[i].toString());
 
                 //ask the user about which information he/she wants to change
                 //keep asking until the user enters 7
@@ -185,13 +166,7 @@ public class PlayerManagementSystem {
             System.out.println("The updated information of the cricketer is: ");
             //Cricketer: # x (index of the Cricketer in the CricketerBase array
             System.out.println("Cricketer: # " + i);
-            System.out.println("Cricketer ID: " + cricketers[i].getCricketerID());
-            System.out.println("Cricketer Name: " + cricketers[i].getCricketerName());
-            System.out.println("Batting Average: " + cricketers[i].getBattingAvg());
-            System.out.println("Bowling Average: " + cricketers[i].getBowlingAvg());
-            System.out.println("Strike Rate: " + cricketers[i].getStrikeRate());
-            System.out.println("Economy Rate: " + cricketers[i].getEconomyRate());
-            System.out.println("Availability: " + cricketers[i].isAvailable());
+            System.out.println(cricketers[i].toString());
                 }
                 else if(choice == 7){
                     break;
