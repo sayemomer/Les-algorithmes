@@ -40,10 +40,25 @@ public class ListNode {
         return head.next;
     }
 
-    // public static void main(String[] args) {
-    //     int[] arr = {1, 2, 3, 4};
-    //     ListNode head = createList(arr);
-    //     head.printList();
-    // }
+    //create a list with a cycle
+    public static ListNode createCycleList(int[] arr, int pos){
+        ListNode head = new ListNode();
+        ListNode curr = head;
+        ListNode cycleNode = null;
+        for(int i = 0; i < arr.length; i++){
+            curr.next = new ListNode(arr[i]);
+            curr = curr.next;
+            if(i == pos){
+                cycleNode = curr;
+            }
+        }
+        curr.next = cycleNode;
+        return head.next;
+    }
+
+    public static void main(String[] args) {
+        //create list with cycle
+        
+    }
 
 }
