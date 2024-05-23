@@ -4,6 +4,7 @@ public class ListNode {
 
     public int val;
     public ListNode next;
+    public ListNode cycleNode;
     
 
     public ListNode() {
@@ -27,8 +28,21 @@ public class ListNode {
             System.out.print(curr.val + " ");
             curr = curr.next;
         }
-        System.out.println();
     }
+
+    public void printCycleList(int len){
+
+        ListNode curr = this;
+        while(curr != null && len>=0){
+            System.out.print(curr.val + " ");
+            curr = curr.next;
+            len--;
+        }
+
+    }
+
+
+
 
     public static ListNode createList(int[] arr){
         ListNode head = new ListNode();
