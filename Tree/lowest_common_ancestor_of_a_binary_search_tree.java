@@ -8,6 +8,8 @@ public class lowest_common_ancestor_of_a_binary_search_tree {
 
         TreeNode curr = root;
 
+        root.inOrderTraversal();
+
         while (curr!= null) {
 
             if(p.val > curr.val && q.val > curr.val){
