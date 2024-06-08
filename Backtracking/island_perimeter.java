@@ -6,12 +6,10 @@ public class island_perimeter {
 
     public static int backtrack(int[][] grid, int row, int col) {
         // Boundary checks
-        if (row < 0 || row >= grid.length || col < 0 || col >= grid[0].length) {
+        if (row < 0 || row >= grid.length || col < 0 || col >= grid[0].length || grid[row][col] == 0) {
             return 1; // Water or edge contributes to perimeter
         }
-        if (grid[row][col] == 0) {
-            return 1; // Water contributes to perimeter
-        }
+        
         if (grid[row][col] == -1) {
             return 0; // Already visited cell, no contribution to perimeter
         }
@@ -21,6 +19,7 @@ public class island_perimeter {
 
         // Recursively check all four directions and sum up the perimeter
         int perimeter = 0;
+
         perimeter += backtrack(grid, row + 1, col); // Down
         perimeter += backtrack(grid, row - 1, col); // Up
         perimeter += backtrack(grid, row, col + 1); // Right
