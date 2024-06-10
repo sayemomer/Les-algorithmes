@@ -6,7 +6,6 @@ import java.util.Queue;
 import java.util.Scanner;
 
 public class equalizing_two_queues {
-T
     public static int equalize(Queue<Integer> q1, Queue<Integer> q2) {
         int sum1 = q1.stream().mapToInt(Integer::intValue).sum();
         int sum2 = q2.stream().mapToInt(Integer::intValue).sum();
