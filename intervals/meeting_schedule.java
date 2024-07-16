@@ -16,6 +16,8 @@ public class meeting_schedule {
             }
         });
 
+//        Collections.sort(intervals,Comparator.comparingInt(i->i.start));
+
 
         boolean canAttendMeetings = true;
 
