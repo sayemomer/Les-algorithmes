@@ -14,8 +14,6 @@ public class course_schedule {
             return false;
         }
 
-        System.out.println(course);
-
         if(premap.get(course).isEmpty()){
             return true;
         }
@@ -31,7 +29,7 @@ public class course_schedule {
 
         }
         visiset.remove(course);
-
+        premap.put(course, new ArrayList<>());
 
         return true;
 
@@ -50,9 +48,6 @@ public class course_schedule {
         for (int i = 0; i < prerequisites.length; i++) {
                 premap.get(prerequisites[i][0]).add(prerequisites[i][1]);
         }
-
-        System.out.println(premap);
-        System.out.println(prerequisites.length);
 
         for (int i = 0; i < numCourses ; i++) {
 
