@@ -7,26 +7,22 @@ public class maximum_product_subarray {
 
     public static int maxProduct(int[] nums) {
 
-        //2 3 -2 4
-        //-2 0 -1
-        //-3 -1 -1
-        //0 2
+        double curr_min = nums[0];
+        double curr_max = nums[0];
+        double result = curr_max;
 
-        int max_product = nums[0];
-        int curr_max = 1;
+        for (int i = 1; i < nums.length; i++) {
 
-        for (int i = 0; i < nums.length; i++) {
+            double prev_max = curr_max;
 
-            if(nums[i] == 0){
-                curr_max = 1;
-                continue;
-            }
-            curr_max *= nums[i];
-            max_product = Math.max(curr_max,max_product);
+            curr_max = Math.max( Math.max(nums[i],curr_min * nums[i]) ,curr_max * nums[i]);
+            curr_min = Math.min( Math.min(nums[i],curr_min * nums[i]) ,prev_max * nums[i]);
+
+            result= Math.max(curr_max,result);
 
         }
 
-        return max_product;
+        return (int) result;
     }
     public static void main(String[] args) {
 
