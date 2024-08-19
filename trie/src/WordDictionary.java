@@ -42,14 +42,12 @@ public class WordDictionary {
 
             }else {
 
-                if(!child.connection.containsKey(word.charAt(j))){
+                if (!child.connection.containsKey(word.charAt(j))) {
                     return false;
-                }else {
+                } else {
                     child = child.connection.get(word.charAt(j));
                 }
-
             }
-
         }
 
         return child.word;
