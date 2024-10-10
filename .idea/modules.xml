@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AL-GO-.iml" filepath="$PROJECT_DIR$/AL-GO-.iml" />
+      <module fileurl="file://$PROJECT_DIR$/devide_and_conquer/devide_and_conquer.iml" filepath="$PROJECT_DIR$/devide_and_conquer/devide_and_conquer.iml" />
       <module fileurl="file://$PROJECT_DIR$/trie/trie.iml" filepath="$PROJECT_DIR$/trie/trie.iml" />
     </modules>
   </component>
