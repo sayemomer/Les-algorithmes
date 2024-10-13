@@ -258,7 +258,7 @@ public class PlayerManagementSystem {
                                 } else {
                                      maxCricketers = addCricketer(sc, cricketers, num, maxCricketers);
                                     // after successfull enrollment of all cricketers, the program will go back to
-                                    // the main menu
+                                    // the App menu
                                     System.out.println("All cricketers have been added successfully!");
                                     break;
                                 }
