@@ -5,19 +5,26 @@ public class Kth_largest_element_in_an_array {
 
     public static int index;
 
-
     public static int quickSelect(int[] nums,int left, int right){
+
+//        System.out.println(left);
+//        System.out.println(right);
+
+
 
         int p = left;
         int pivot = right;
 
-        while (p< pivot){
-            if(nums[p] > nums[pivot] ){
-                break;
-            }else {
+
+        for (int i = left; i < right; i++) {
+
+            if (nums[i] <= nums[pivot]){
+                int temp = nums[i];
+                nums[i] = nums[p];
+                nums[p] = temp;
                 p++;
             }
-
+            
         }
 
         int temp = nums[p];
@@ -25,9 +32,11 @@ public class Kth_largest_element_in_an_array {
         nums[right] = temp;
 
         if(p<index){
-            return quickSelect(nums,left,p-1);
+
+            return quickSelect(nums,p+1,right );
         }else if (p>index){
-            return quickSelect(nums, p+ 1, right);
+
+            return quickSelect(nums, left, p-1);
         }else {
             return nums[p];
         }
