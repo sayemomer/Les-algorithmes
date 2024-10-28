@@ -65,6 +65,7 @@ public class stabilize_the_assembly_line {
     public static void main(String[] args) {
         try (Scanner sc = new Scanner(System.in)) {
             int[] raw_assembly_line = Arrays.stream(sc.nextLine().split(" ")).mapToInt(Integer::parseInt).toArray();
+
             int threshold = Integer.parseInt(sc.nextLine());
 
             stabilizer(raw_assembly_line, threshold);
