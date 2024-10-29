@@ -14,6 +14,12 @@ public class project_dependencies {
     }
 
     public boolean dfs(String projectOrTask) {
+
+
+        if( premap.containsKey(projectOrTask) && premap.get(projectOrTask).isEmpty()){
+            completedTasks.add(projectOrTask);
+            return true;
+        }
         if (completedTasks.contains(projectOrTask)) {
             return true;
         }
@@ -71,6 +77,8 @@ public class project_dependencies {
                 project1.premap.put(projectName, Arrays.asList(tasks));
             }
 
+
+
             String[] completedTasks = sc.nextLine().split(",");
             Collections.addAll(project1.completedTasks, completedTasks);
 
@@ -104,6 +112,13 @@ public class project_dependencies {
         premap4.put("projectB", Arrays.asList("projectA", "task3"));
         premap4.put("projectC", Arrays.asList("projectB", "task4"));
         testCase(premap4, "NONE", new HashSet<>(Arrays.asList("task1")), 4);
+
+        LinkedHashMap<String, List<String>> premap5 = new LinkedHashMap<>();
+        premap5.put("projectX", Arrays.asList("taskA", "taskB"));
+        premap5.put("projectY", Arrays.asList());
+        premap5.put("projectZ", Arrays.asList("taskD", "taskE"));
+//        premap5.put("projectA",Arrays.asList());
+        testCase(premap5, "projectA\nprojectX\nprojectY\nprojectZ", new HashSet<>(Arrays.asList("taskA", "taskB", "taskC", "taskD", "taskE")), 5);
     }
 
     public static void testCase(LinkedHashMap<String, List<String>> premap, String expected, Set<String> completedTasks, int test) {
@@ -113,10 +128,13 @@ public class project_dependencies {
 
         String result = testProject.checkDependency();
 
+        System.out.println(result);
+        System.out.println(expected);
+
         if (result.equals(expected)) {
             System.out.println(test + " Passed");
         } else {
-            System.out.println(test + " --FAILED-- Expected: " + expected + ", but got: " + result);
+            System.out.println(test + " --FAILED--");
         }
     }
 }
