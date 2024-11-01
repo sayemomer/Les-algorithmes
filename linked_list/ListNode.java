@@ -70,9 +70,9 @@ public class ListNode {
         return head.next;
     }
 
-    public static void main(String[] args) {
-        //create list with cycle
-        
-    }
+//    public static void main(String[] args) {
+//        //create list with cycle
+//
+//    }
 
 }
