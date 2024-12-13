@@ -7,9 +7,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="SmartDevice" />
+        <module name="FestivalOfLight" />
+        <module name="FileSystem" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="FestivalOfLight" target="17" />
+      <module name="FileSystem" target="17" />
       <module name="math" target="17" />
       <module name="SmartDevice" target="17" />
     </bytecodeTargetLevel>

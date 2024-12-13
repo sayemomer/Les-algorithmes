@@ -4,6 +4,8 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/SmartDevice/pom.xml" />
+        <option value="$PROJECT_DIR$/FestivalOfLight/pom.xml" />
+        <option value="$PROJECT_DIR$/FileSystem/pom.xml" />
       </list>
     </option>
   </component>

@@ -119,5 +119,19 @@ public class TreeNode {
             return this.right == null ? null : this.right.find(value);
         }
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        toStringHelper(this, sb);
+        return sb.toString();
+    }
+
+    private void toStringHelper(TreeNode node, StringBuilder sb) {
+        if (node == null) return;
+        toStringHelper(node.left, sb);
+        sb.append(node.val).append(" ");
+        toStringHelper(node.right, sb);
+    }
 }
 
