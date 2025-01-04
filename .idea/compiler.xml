@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="heap" />
         <module name="SmartDevice" />
         <module name="FestivalOfLight" />
         <module name="FileSystem" />
@@ -14,6 +15,7 @@
     <bytecodeTargetLevel>
       <module name="FestivalOfLight" target="17" />
       <module name="FileSystem" target="17" />
+      <module name="heap" target="17" />
       <module name="math" target="17" />
       <module name="SmartDevice" target="17" />
     </bytecodeTargetLevel>
