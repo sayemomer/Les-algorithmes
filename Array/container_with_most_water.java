@@ -22,6 +22,7 @@ public class container_with_most_water {
         
                     int container_height =0;
                     int container_width =0;
+
                     int area = Math.min(height[first_pointer], height[second_pointer]) *  (second_pointer - first_pointer);
     
         

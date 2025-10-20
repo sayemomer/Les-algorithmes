@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/FileSystem.iml" filepath="$PROJECT_DIR$/FileSystem.iml" />
       <module fileurl="file://$PROJECT_DIR$/SmartDevice.iml" filepath="$PROJECT_DIR$/SmartDevice.iml" />
       <module fileurl="file://$PROJECT_DIR$/devide_and_conquer/devide_and_conquer.iml" filepath="$PROJECT_DIR$/devide_and_conquer/devide_and_conquer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/heap.iml" filepath="$PROJECT_DIR$/heap.iml" />
       <module fileurl="file://$PROJECT_DIR$/trie/trie.iml" filepath="$PROJECT_DIR$/trie/trie.iml" />
     </modules>
   </component>
